@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+.nextDays {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+.nextDays .wrapper {
+    height: 100px;
+    width: 40%;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    line-height: 100px;
+    box-sizing: border-box;
+    font-size: 2em;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+}
+.nextDays .wrapper i {
+    font-size: 1.5em;
+    line-height: 90px;
+    width: 30%;
+    padding-left: 70px;
+    box-sizing: border-box;
+}
+.nextDays .day {
+    width: 40%;
+}
+.nextDays .temp_day {
+    width: 10%;
+}
+.nextDays .temp_night {
+    width: 10%;
+}
