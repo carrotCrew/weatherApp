@@ -10,6 +10,7 @@
     <title>Aplikacja pogodowa</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="dist/bundle.js" defer></script>
 </head>
 <body>
     <div id="main">
@@ -20,19 +21,19 @@
             </div>
         </header>
         <section>
-            <div class="temperature">
-                <p>14°C</p>
+            <div>
+                <p class="temperature"></p>
             </div>
             <div class="icon">
-                <i class="fas fa-sun"></i>
+                <!-- <i class="fas fa-sun"></i> -->
             </div>
             <div class="moreInfo">
-                <p>Częściowe zachmurzenie</p>
+                <p class="description"></p>
             </div>
             <div>
-                <p><i class="fas fa-tint"></i> 34%</p>
-                <p><i class="fas fa-temperature-low"></i> 15°C</p>
-                <p><i class="fas fa-wind"></i> 6m/s</p>
+                <p><i class="fas fa-tint"></i> <span class="humidity"></span></p>
+                <p><i class="fas fa-temperature-low"></i> <span class="low-temp">15°C</span></p>
+                <p><i class="fas fa-wind"></i> <span class="wind"></span></p>
             </div>
         </section>
         <footer>
