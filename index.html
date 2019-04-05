@@ -8,11 +8,14 @@
     <meta name="keywords" content="aplikacja, pogoda, temperatura, stopnie, ciśnienie, słońce, deszcz, chmury, dzień, noc, opady, mgła, dni tygodnia, miasto, wiatr">
     <meta name="author" content="Natalia Długosz, Martyna Kępińska, Hanna Domagała, Konrad Łączniak, Kuba Serwa">
     <title>Aplikacja pogodowa</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
 </head>
 <body>
+    <div id="container">
     <main>
         <section class="options">
                 <i class="fas fa-bars"></i>
@@ -31,13 +34,22 @@
                 <div class="wind"><i class="fas fa-wind"></i>6m/s</div>
             </div>
         </section>
-        <section class="futureWeather">
-                <p><i class="fas fa-cloud-sun"></i> Wtorek 14°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Środa 15°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Czwartek 16°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Piątek 17°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Sobota 18°C</p>
-        </section>
     </main>
+    <!-- musiałem tutaj zakończyć main, żeby css działał poprawnie -->
+        <!-- sekcja z kolejnymi dniami -->
+        <section>
+            <div class="nextDays">
+                <div class="wrapper_top wrapper_top1"><i></i><span class="day"></span><span class="temp_day fas fa-sun"></span><span class="temp_night far fa-moon"></span></div>
+                <div class="wrapper_top"><i></i><span class="day"></span><span class="temp_day fas fa-sun"></span><span class="temp_night far fa-moon"></span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Wtorek</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Środa</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Czwartek</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Piątek</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Sobota</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+                <div class="wrapper"><i class="fas fa-cloud-sun"></i><span class="day">Niedziela</span><span class="temp_day">20°</span><span class="temp_night">15°</span></div>
+            </div>
+        </section>
+        <!-- koniec sekcji z kolejnymi dniami -->
+    </div>
 </body>
 </html>

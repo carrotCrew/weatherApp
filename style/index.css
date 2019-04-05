@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+main {
+  font-size: calc(14px + 1vw);
+}
+main .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+main .options i:hover {
+  color: #c3c3fa;
+}
+main .currentWeather {
+  padding: 30px 0;
+}
+main .currentWeather .basicInfo i {
+  padding: 10px;
+}
+main .currentWeather .basicInfo p {
+  font-size: calc(12px + 2vw);
+}
+main .currentWeather .basicInfo p:first-child {
+  font-size: calc(24px + 4vw);
+}
+main .currentWeather .moreInfo {
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 1vw);
+  margin: 60px 0;
+}
+main .currentWeather .moreInfo .temp {
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+}
+main .currentWeather .moreInfo .temp span {
+  color: #c3c3fa;
+  margin-left: 10px;
+}
+main .currentWeather .moreInfo div {
+  width: 30%;
+}
+main .currentWeather .moreInfo i {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 800px) {
+  main {
+    width: 70vw;
+    overflow: hidden;
+    margin: 0 auto;
+    font-size: calc(12px + 3vw);
+  }
+  main .currentWeather {
+    display: flex;
+    justify-content: space-around;
+  }
+  main .currentWeather .basicInfo,
+main .currentWeather .moreInfo {
+    align-items: center;
+    margin: 0;
+  }
+  main .currentWeather .basicInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 40%;
+  }
+  main .currentWeather .basicInfo p {
+    font-size: calc(12px + 1vw);
+  }
+  main .currentWeather .basicInfo p:first-child {
+    font-size: calc(24px + 3vw);
+  }
+  main .currentWeather .moreInfo {
+    width: 60%;
+  }
+}
+@media (max-height: 500px) {
+  body {
+    font-size: calc(12px + 2vw);
+  }
+  body .currentWeather {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  body .currentWeather .basicInfo {
+    width: 40%;
+    font-size: calc(12px + 2vw);
+  }
+  body .currentWeather .moreInfo {
+    width: 60%;
+    margin: 10px auto;
+    align-items: center;
+  }
+  body .currentWeather .moreInfo i {
+    font-size: calc(14px + 2vw);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

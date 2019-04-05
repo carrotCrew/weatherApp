@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../images/bg.jpg');
+    background-image: url('../images/bg4.png');
     background-attachment: fixed;
     background-size: cover;
 }
@@ -28,16 +28,13 @@ body {
 .nextDays .wrapper_top {
     margin-bottom: 0;
     background-color: transparent;
-    color: rgba(0, 0, 0, 0.2);
+    color: white;
 }
 .nextDays .wrapper_top .temp_day,
 .nextDays .wrapper_top .temp_night {
     margin-top: auto;
     box-sizing: border-box;
     padding-bottom: 10px;
-}
-.nextDays .wrapper_top .temp_day {
-    padding-left: 5px;
 }
 .nextDays .wrapper > i, 
 .nextDays .wrapper_top > i {
