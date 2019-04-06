@@ -15,10 +15,13 @@ body {
 main {
 
     .options {
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 10px;
+        background-color: rgba(0, 0, 0, 0.2);
+        font-size: calc(12px + 1vw);
+        padding: 10px;
         i {
             &:hover {
             color: $secondFontColor;
@@ -40,6 +43,26 @@ main {
                     font-size: calc(24px + 4vw);
                 }
             }
+            .fa-sun {
+                animation-name: rotate;
+                animation-duration: 15s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                50% {
+                    transform: rotate(180deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
         }
 
         .moreInfo {
@@ -50,8 +73,8 @@ main {
 
             .temp {
                 border: {
-                    left: 3px solid white;
-                    right: 3px solid white;
+                    left: 2px solid white;
+                    right: 2px solid white;
                 };
                 span {
                     color: $secondFontColor;
@@ -73,11 +96,11 @@ main {
 
 @media (min-width: 800px) {
     main {
-        width: 70vw;
         overflow: hidden;
         margin: 0 auto;
-        font-size: calc(12px + 3vw);
         .currentWeather {
+            width: 70vw;
+            margin: 0 auto;
             display: flex;
             justify-content: space-around;
             .basicInfo,
@@ -108,7 +131,6 @@ main {
 
 @media (max-height: 500px) {
     body {
-        font-size: calc(12px + 2vw);
 
                 .currentWeather {
                     display: flex;
@@ -127,9 +149,17 @@ main {
                         i {
                         font-size: calc(14px + 2vw);
                         }
+                        .temp span {
+                            display: inline-block;
+                        }
                     }
                 }
-        };
-
-
+        }
 }
+
+        @media (max-width: 400px) {
+            main .currentWeather .moreInfo .temp span {
+                display: block;
+                margin: 0;
+            }
+        }

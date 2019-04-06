@@ -11,10 +11,13 @@ body {
 }
 
 main .options {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: calc(12px + 1vw);
+  padding: 10px;
 }
 main .options i:hover {
   color: #3b6d6b;
@@ -32,6 +35,23 @@ main .currentWeather .basicInfo p {
 main .currentWeather .basicInfo p:first-child {
   font-size: calc(24px + 4vw);
 }
+main .currentWeather .basicInfo .fa-sun {
+  animation-name: rotate;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 main .currentWeather .moreInfo {
   display: flex;
   justify-content: center;
@@ -39,8 +59,8 @@ main .currentWeather .moreInfo {
   margin: 60px 0;
 }
 main .currentWeather .moreInfo .temp {
-  border-left: 3px solid white;
-  border-right: 3px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
 }
 main .currentWeather .moreInfo .temp span {
   color: #3b6d6b;
@@ -56,12 +76,12 @@ main .currentWeather .moreInfo i {
 
 @media (min-width: 800px) {
   main {
-    width: 70vw;
     overflow: hidden;
     margin: 0 auto;
-    font-size: calc(12px + 3vw);
   }
   main .currentWeather {
+    width: 70vw;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
   }
@@ -88,9 +108,6 @@ main .currentWeather .moreInfo {
   }
 }
 @media (max-height: 500px) {
-  body {
-    font-size: calc(12px + 2vw);
-  }
   body .currentWeather {
     display: flex;
     justify-content: space-around;
@@ -107,6 +124,15 @@ main .currentWeather .moreInfo {
   }
   body .currentWeather .moreInfo i {
     font-size: calc(14px + 2vw);
+  }
+  body .currentWeather .moreInfo .temp span {
+    display: inline-block;
+  }
+}
+@media (max-width: 400px) {
+  main .currentWeather .moreInfo .temp span {
+    display: block;
+    margin: 0;
   }
 }
 
