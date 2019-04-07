@@ -16,8 +16,10 @@ const getForecastWeatherById = async (key, city) => {
     return forecastWeather;
 };
 
+
+
 const assignWeather = (currentWeather, forecastWeather, containers) => {
-    const { weather, main: { humidity, temp, temp_min }, wind: {speed} } = currentWeather;
+    const { weather, main: { humidity, temp, temp_min, temp_max}, wind: {speed} } = currentWeather;
 
    
     
@@ -29,23 +31,20 @@ const assignWeather = (currentWeather, forecastWeather, containers) => {
     const temp32 = forecastWeather.list[26].main.temp;
     const temp41 = forecastWeather.list[30].main.temp;
     const temp42 = forecastWeather.list[34].main.temp;
-  
-
-     //proba destruktyruzacji nowego obiektu z paraetrami pogodwymi dla 5 dni
-      //const dt = currentWeather.list[0].dt;
-    //const { list: [item]  } = currentWeather;
-    //console.log(item.dt);
-    //console.log(weather);
-    //console.log(weather[0].icon);
+    const weather1 = forecastWeather.list[6].weather;
+    const weather2 = forecastWeather.list[14].weather;
+    const weather3 = forecastWeather.list[22].weather;
+    const weather4 = forecastWeather.list[30].weather;
     
-    const { cityContainer, humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42 } = containers;
+    const { cityContainer, humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, highTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42, iconContainer1, iconContainer2, iconContainer3, iconContainer4 } = containers;
 
    
     temperatureContainer.innerHTML = `${Math.round(temp)}°C`;
-    iconContainer.innerHTML = `<img src='http://openweathermap.org/img/w/${weather[0].icon}.png' alt="">`; // ten src iconki do zmiany bo te są brzydkie
+    iconContainer.innerHTML = `<img src='http://openweathermap.org/img/w/${weather[0].icon}.png' width="50" height="50"alt="">`; // ten src iconki do zmiany bo te są brzydkie
     descriptionContainer.innerHTML = weather[0].description;
     humidityContainer.innerHTML = `${humidity}%`;
     lowTempContainer.innerHTML = `${Math.round(temp_min)}°C`;
+    highTempContainer.innerHTML = `${Math.round(temp_max)}°C`;
     windContainer.innerHTML = `${Math.round(speed)} m/s`;
     temperatureContainer11.innerHTML = `${Math.round(temp11)}°C`;
     temperatureContainer12.innerHTML = `${Math.round(temp12)}°C`;
@@ -55,7 +54,10 @@ const assignWeather = (currentWeather, forecastWeather, containers) => {
     temperatureContainer32.innerHTML = `${Math.round(temp32)}°C`;
     temperatureContainer41.innerHTML = `${Math.round(temp41)}°C`;
     temperatureContainer42.innerHTML = `${Math.round(temp42)}°C`;
-    
+    iconContainer1.innerHTML = `<img src='http://openweathermap.org/img/w/${weather1[0].icon}.png' width="50" height="50"alt="">`;
+    iconContainer2.innerHTML = `<img src='http://openweathermap.org/img/w/${weather2[0].icon}.png' width="50" height="50"alt="">`;
+    iconContainer3.innerHTML = `<img src='http://openweathermap.org/img/w/${weather3[0].icon}.png' width="50" height="50"alt="">`;
+    iconContainer4.innerHTML = `<img src='http://openweathermap.org/img/w/${weather4[0].icon}.png' width="50" height="50"alt="">`;
 
 };
 
