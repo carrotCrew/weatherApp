@@ -74,6 +74,27 @@ main .currentWeather .moreInfo i {
   font-size: 1.5rem;
 }
 
+.btn {
+  color: white;
+  border-radius: 5px;
+  background-color:#a57450;
+  border-color: #c1631f;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 18px;
+  line-height: 2;
+  
+  
+}
+
 @media (min-width: 800px) {
   main {
     overflow: hidden;

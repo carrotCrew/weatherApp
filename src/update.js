@@ -40,7 +40,7 @@ const assignWeather = (currentWeather, forecastWeather, containers) => {
 
    
     temperatureContainer.innerHTML = `${Math.round(temp)}°C`;
-    iconContainer.innerHTML = `<img src='http://openweathermap.org/img/w/${weather[0].icon}.png' width="50" height="50"alt="">`; // ten src iconki do zmiany bo te są brzydkie
+    iconContainer.innerHTML = `<img src='http://openweathermap.org/img/w/${weather[0].icon}.png' width="100" height="100" style="vertical-align: middle" alt="">`; // ten src iconki do zmiany bo te są brzydkie
     descriptionContainer.innerHTML = weather[0].description;
     humidityContainer.innerHTML = `${humidity}%`;
     lowTempContainer.innerHTML = `${Math.round(temp_min)}°C`;
@@ -54,10 +54,10 @@ const assignWeather = (currentWeather, forecastWeather, containers) => {
     temperatureContainer32.innerHTML = `${Math.round(temp32)}°C`;
     temperatureContainer41.innerHTML = `${Math.round(temp41)}°C`;
     temperatureContainer42.innerHTML = `${Math.round(temp42)}°C`;
-    iconContainer1.innerHTML = `<img src='http://openweathermap.org/img/w/${weather1[0].icon}.png' width="50" height="50"alt="">`;
-    iconContainer2.innerHTML = `<img src='http://openweathermap.org/img/w/${weather2[0].icon}.png' width="50" height="50"alt="">`;
-    iconContainer3.innerHTML = `<img src='http://openweathermap.org/img/w/${weather3[0].icon}.png' width="50" height="50"alt="">`;
-    iconContainer4.innerHTML = `<img src='http://openweathermap.org/img/w/${weather4[0].icon}.png' width="50" height="50"alt="">`;
+    iconContainer1.innerHTML = `<img src='http://openweathermap.org/img/w/${weather1[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
+    iconContainer2.innerHTML = `<img src='http://openweathermap.org/img/w/${weather2[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
+    iconContainer3.innerHTML = `<img src='http://openweathermap.org/img/w/${weather3[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
+    iconContainer4.innerHTML = `<img src='http://openweathermap.org/img/w/${weather4[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
 
 };
 
