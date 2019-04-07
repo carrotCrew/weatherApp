@@ -18,9 +18,45 @@ document.addEventListener("DOMContentLoaded", function(event) {
         temperatureContainer: document.querySelector('.temperature'),
         humidityContainer: document.querySelector('.humidity'),
         lowTempContainer: document.querySelector('.low-temp'),
-        windContainer: document.querySelector('.wind')
+        windContainer: document.querySelector('.wind'),
+        temperatureContainer11: document.querySelector('.temperature11'),
+        temperatureContainer12: document.querySelector('.temperature12'),
+        temperatureContainer22: document.querySelector('.temperature22'),
+        temperatureContainer21: document.querySelector('.temperature21'),
+        temperatureContainer31: document.querySelector('.temperature31'),
+        temperatureContainer32: document.querySelector('.temperature32'),
+        temperatureContainer41: document.querySelector('.temperature41'),
+        temperatureContainer42: document.querySelector('.temperature42'),
     };
 
     updateWeather(apiKey, cityId, weatherContainers);
 });
+
+
+//wyszukiwanie miasta
+
+function cityName(){
+    let input = document.getElementById("input1").value;
+    console.log(input);
+    return input;
+}
+var subButton = document.getElementById('subButton');
+subButton.addEventListener('click', cityName, false);
+
+
+//ZMIANA KOLEJNYCH DNI 
+const currentDate = new Date();
+const day0 = currentDate.getDay();
+
+const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+
+const day1 = days[day0 + 1];
+const day2 = days[day0 + 2];
+const day3 = days[day0 + 3];
+const day4 = days[day0 + 4];
+
+document.querySelector('.day1').innerHTML = `${day1}`
+document.querySelector('.day2').innerHTML = `${day2}`
+document.querySelector('.day3').innerHTML = `${day3}`
+document.querySelector('.day4').innerHTML = `${day4}`
 
