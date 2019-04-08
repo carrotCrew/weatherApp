@@ -62,7 +62,7 @@ main .currentWeather .moreInfo .temp {
   border-left: 2px solid white;
   border-right: 2px solid white;
 }
-main .currentWeather .moreInfo .temp .low-temp-night {
+main .currentWeather .moreInfo .temp .low-temp {
   color: #3b6d6b;
   margin-left: 10px;
 }

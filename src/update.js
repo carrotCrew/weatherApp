@@ -1,9 +1,39 @@
 // DEFINICJE FUNKCJI POTRZEBNYCH DO ZUPDATOWANIA DANYCH DOTYCZĄCYCH POGODY
 
+
+//funkcje pomocnicze
+const firstCapital = (word) => {
+    return word[0].toUpperCase() + word.slice(1);
+}
+
+const getDayIndex = (list) => {
+    let dayDate, hour;
+    const index = list.findIndex((day) => {
+        dayDate = new Date(day.dt_txt);
+        hour = dayDate.getHours();
+        day = dayDate.getDay();
+
+        return (hour === 15 & day !== 1);
+    });
+    return index;
+}
+
+const getNightIndex = (list) => {
+    let dayDate, hour;
+    const index = list.findIndex((day) => {
+        dayDate = new Date(day.dt_txt);
+        hour = dayDate.getHours();
+        day = dayDate.getDay();
+
+        return (hour === 3 & day !== 1);
+    });
+    return index;
+}
+
 // warunki pogodowe aktualne
 
 const getWeatherById = async (key, city) => {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${city}&units=metric&APPID=${key}`);
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${city}&units=metric&APPID=${key}&lang=pl`);
     const currentWeather = await response.json();
     return currentWeather;
 };
@@ -11,37 +41,35 @@ const getWeatherById = async (key, city) => {
 // warunki pogodowe prognozowane
 
 const getForecastWeatherById = async (key, city) => {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${city}&units=metric&APPID=${key}`);
+    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${city}&units=metric&APPID=${key}&lang=pl`);
     const forecastWeather = await response.json();
     return forecastWeather;
 };
 
-
-
-const assignWeather = (currentWeather, forecastWeather, containers) => {
+const assignWeather = (currentWeather, forecastWeather, containers, date) => {
     const { weather, main: { humidity, temp, temp_min, temp_max}, wind: {speed} } = currentWeather;
+    const { cityContainer, humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, highTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42, iconContainer1, iconContainer2, iconContainer3, iconContainer4 } = containers;
+    const dayList = forecastWeather.list;
 
-   
-    
-    const temp11 = forecastWeather.list[6].main.temp;
-    const temp12 = forecastWeather.list[10].main.temp;
-    const temp21 = forecastWeather.list[14].main.temp;
-    const temp22 = forecastWeather.list[18].main.temp;
-    const temp31 = forecastWeather.list[22].main.temp;
-    const temp32 = forecastWeather.list[26].main.temp;
-    const temp41 = forecastWeather.list[30].main.temp;
-    const temp42 = forecastWeather.list[34].main.temp;
+    const dayIndex = getDayIndex(dayList);
+    const nightIndex = getNightIndex(dayList);
+
+    const temp11 = forecastWeather.list[dayIndex].main.temp;
+    const temp12 = forecastWeather.list[nightIndex].main.temp;
+    const temp21 = forecastWeather.list[dayIndex + 8].main.temp;
+    const temp22 = forecastWeather.list[nightIndex + 8].main.temp;
+    const temp31 = forecastWeather.list[dayIndex + 16].main.temp;
+    const temp32 = forecastWeather.list[nightIndex + 16].main.temp;
+    const temp41 = forecastWeather.list[dayIndex + 24].main.temp;
+    const temp42 = forecastWeather.list[nightIndex + 24].main.temp;
     const weather1 = forecastWeather.list[6].weather;
     const weather2 = forecastWeather.list[14].weather;
     const weather3 = forecastWeather.list[22].weather;
     const weather4 = forecastWeather.list[30].weather;
-    
-    const { cityContainer, humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, highTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42, iconContainer1, iconContainer2, iconContainer3, iconContainer4 } = containers;
 
-   
     temperatureContainer.innerHTML = `${Math.round(temp)}°C`;
     iconContainer.innerHTML = `<img src='http://openweathermap.org/img/w/${weather[0].icon}.png' width="100" height="100" style="vertical-align: middle" alt="">`; // ten src iconki do zmiany bo te są brzydkie
-    descriptionContainer.innerHTML = weather[0].description;
+    descriptionContainer.innerHTML = firstCapital(weather[0].description);
     humidityContainer.innerHTML = `${humidity}%`;
     lowTempContainer.innerHTML = `${Math.round(temp_min)}°C`;
     highTempContainer.innerHTML = `${Math.round(temp_max)}°C`;
@@ -58,16 +86,15 @@ const assignWeather = (currentWeather, forecastWeather, containers) => {
     iconContainer2.innerHTML = `<img src='http://openweathermap.org/img/w/${weather2[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
     iconContainer3.innerHTML = `<img src='http://openweathermap.org/img/w/${weather3[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
     iconContainer4.innerHTML = `<img src='http://openweathermap.org/img/w/${weather4[0].icon}.png' width="80" height="80" style="vertical-align: middle" alt="">`;
-
 };
 
-const updateWeather = async (key, city, containers) => {
+const updateWeather = async (key, city, containers, date) => {
     try {
         const weather = await getWeatherById(key, city);
         const forecastWeather = await getForecastWeatherById(key, city);
         console.log(weather);
         console.log(forecastWeather);
-        assignWeather(weather, forecastWeather, containers);
+        assignWeather(weather, forecastWeather, containers, date);
     } catch(error) {
         console.log(error);
     }
