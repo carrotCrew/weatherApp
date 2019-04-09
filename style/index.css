@@ -8,6 +8,7 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
   text-align: center;
+  background-position: bottom;
 }
 
 main .options {
@@ -26,7 +27,7 @@ main .options i:hover {
 main .currentWeather {
   padding: 30px 0;
 }
-main .currentWeather .basicInfo i {
+main .currentWeather .basicInfo img {
   padding: 10px;
 }
 main .currentWeather .basicInfo p {
@@ -63,7 +64,7 @@ main .currentWeather .moreInfo .temp {
   border-right: 2px solid white;
 }
 main .currentWeather .moreInfo .temp .low-temp {
-  color: #3b6d6b;
+  color: #5bb6b3;
   margin-left: 10px;
 }
 main .currentWeather .moreInfo div {

@@ -8,8 +8,6 @@ import { changeCity } from './changeCity';
 const apiKey = "cf8dc6b8051743a8b67a42d252ffe825";
 const currentDate = new Date();
 let defaultCityId = "3081368";
-// ^ tutaj na sztywno wpisany cityId, ale trzeba będzie obcykać
-// moduł który będzie obsługiwał zmianę miasta (change.js)
 
 
 //WYWOŁANE PO ZAŁADOWANIU HTML
