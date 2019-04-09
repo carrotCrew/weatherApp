@@ -33,7 +33,7 @@ const getNightIndex = (list) => {
 // warunki pogodowe aktualne
 
 const getWeatherById = async (key, city) => {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?id=${city}&units=metric&APPID=${key}&lang=pl`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city}&units=metric&APPID=${key}&lang=pl`);
     const currentWeather = await response.json();
     return currentWeather;
 };
@@ -41,7 +41,7 @@ const getWeatherById = async (key, city) => {
 // warunki pogodowe prognozowane
 
 const getForecastWeatherById = async (key, city) => {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?id=${city}&units=metric&APPID=${key}&lang=pl`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${city}&units=metric&APPID=${key}&lang=pl`);
     const forecastWeather = await response.json();
     return forecastWeather;
 };
