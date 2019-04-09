@@ -8,42 +8,48 @@
     <meta name="keywords" content="aplikacja, pogoda, temperatura, stopnie, ciśnienie, słońce, deszcz, chmury, dzień, noc, opady, mgła, dni tygodnia, miasto, wiatr">
     <meta name="author" content="Natalia Długosz, Martyna Kępińska, Hanna Domagała, Konrad Łączniak, Kuba Serwa">
     <title>Aplikacja pogodowa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+    <script src="dist/bundle.js" defer></script>
 </head>
 <body>
-    <div id="main">
-        <header>
-            <img src="Clouds.png" alt="background - header" />
-            <div class="city">
-                <p>Wrocław</p>
+    <div id="container">
+    <main>
+        <section class="options">
+                <i class="fas fa-bars"></i>
+                <span class="city">Wrocław</span>
+                <i class="fas fa-search"></i>
+        </section>
+        <section class="currentWeather">
+            <div class="basicInfo">
+                <p><span class="temperature"></span> <span class="icon"></span></p>
+                <p class="description">Częściowe zachmurzenie</p>
             </div>
-        </header>
-        <section>
-            <div class="temperature">
-                <p>14°C</p>
-            </div>
-            <div class="icon">
-                <i class="fas fa-sun"></i>
-            </div>
+
             <div class="moreInfo">
-                <p>Częściowe zachmurzenie</p>
-            </div>
-            <div>
-                <p><i class="fas fa-tint"></i> 34%</p>
-                <p><i class="fas fa-temperature-low"></i> 15°C</p>
-                <p><i class="fas fa-wind"></i> 6m/s</p>
+                <div class="humid"><i class="fas fa-tint"></i><span class="humidity"></span></div>
+                <div class="temp"><i class="fas fa-temperature-low"></i> <span class="high-temp">15°C</span> <span class="low-temp">12°C</span></div>
+                <div class="windy"><i class="fas fa-wind"></i><span class="wind"></span></div>
             </div>
         </section>
-        <footer>
-            <div class="nextDay">
-                <p><i class="fas fa-cloud-sun"></i> Wtorek 14°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Środa 15°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Czwartek 16°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Piątek 17°C</p>
-                <p><i class="fas fa-cloud-sun"></i> Sobota 18°C</p>
+    </main>
+    <!-- musiałem tutaj zakończyć main, żeby css działał poprawnie -->
+        <!-- sekcja z kolejnymi dniami -->
+        <section>
+            <div class="nextDays">
+                <div class="wrapper_top wrapper_top1"><i></i><span class="day"></span><span class="temp_day fas fa-sun"></span><span class="temp_night far fa-moon"></span></div>
+                <div class="wrapper_top"><i></i><span class="day"></span><span class="temp_day fas fa-sun"></span><span class="temp_night far fa-moon"></span></div>
+                <div class="wrapper"><i class="icon1"></i><span class="day day1">Wtorek</span><span class="temp_day temperature11">20°</span><span class="temp_night temperature12">15°</span></div>
+                <div class="wrapper"><i class=" icon2"></i></span><span class="day day2">Środa</span><span class="temp_day temperature21">20°</span><span class="temp_night temperature22">15°</span></div>
+                <div class="wrapper"><i class="icon3"></i><span class="day day3">Czwartek</span><span class="temp_day temperature31">20°</span><span class="temp_night temperature32">15°</span></div>
+                <div class="wrapper"><i class="icon4"></i><span class="day day4">Piątek</span><span class="temp_day temperature41">20°</span><span class="temp_night temperature42">15°</span></div>
             </div>
-        </footer>
+        </section>
+        <!-- koniec sekcji z kolejnymi dniami -->
     </div>
 </body>
+
 </html>

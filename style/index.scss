@@ -1,0 +1,169 @@
+$secondFontColor: rgb(59, 109, 107);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    bottom: 0;
+}
+
+body {
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+main {
+
+    .options {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.2);
+        font-size: calc(12px + 1vw);
+        padding: 10px;
+        i {
+            &:hover {
+            color: $secondFontColor;
+            cursor: pointer;
+            }
+        }
+    }
+
+    .currentWeather {
+        padding: 30px 0;
+
+        .basicInfo {
+            i {
+                padding: 10px;
+            }
+            p {
+                font-size: calc(12px + 2vw);
+                &:first-child {
+                    font-size: calc(24px + 4vw);
+                }
+            }
+            .fa-sun {
+                animation-name: rotate;
+                animation-duration: 15s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                50% {
+                    transform: rotate(180deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        .moreInfo {
+            display: flex;
+            justify-content: center;
+            font-size: calc(10px + 1vw);
+            margin: 60px 0;
+
+            .temp {
+                border: {
+                    left: 2px solid white;
+                    right: 2px solid white;
+                };
+                span {
+                    color: $secondFontColor;
+                    margin-left: 10px;
+                }
+            }
+
+            div {
+                width: 30%;
+            }
+
+            i {
+                width: 100%;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    main {
+        overflow: hidden;
+        margin: 0 auto;
+        .currentWeather {
+            width: 70vw;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            .basicInfo,
+            .moreInfo {
+                align-items: center;
+                margin: 0;
+            }
+            .basicInfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+                width: 40%;
+                p {
+                    font-size: calc(12px + 1vw);
+
+                    &:first-child {
+                        font-size: calc(24px + 3vw);
+                    }
+                }
+            }
+            .moreInfo {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media (max-height: 500px) {
+    body {
+
+                .currentWeather {
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 5px;
+
+                    .basicInfo {
+                        width: 40%;
+                        font-size: calc(12px + 2vw);
+                    }
+
+                    .moreInfo {
+                        width: 60%;
+                        margin: 10px auto;
+                        align-items: center;
+                        i {
+                        font-size: calc(14px + 2vw);
+                        }
+                        .temp span {
+                            display: inline-block;
+                        }
+                    }
+                }
+        }
+}
+
+        @media (max-width: 400px) {
+            main .currentWeather .moreInfo .temp span {
+                display: block;
+                margin: 0;
+            }
+        }
