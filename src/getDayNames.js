@@ -1,14 +1,23 @@
 // GENEROWANIE DNI TYGODNIA
 
+
+
 const getDayNames = (currentDate) => {
     const days = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
     
-    const day0 = currentDate.getDay();
+    let dayNumber = currentDate.getDay() + 1;
+
+    const nextDay = () => {
+        if (days[dayNumber] === undefined) {
+            dayNumber = 0;
+        }
+        return dayNumber++;
+    }
     
-    const day1 = days[day0 + 1];
-    const day2 = days[day0 + 2];
-    const day3 = days[day0 + 3];
-    const day4 = days[day0 + 4];
+    const day1 = days[nextDay()];
+    const day2 = days[nextDay()];
+    const day3 = days[nextDay()];
+    const day4 = days[nextDay()];
     
     document.querySelector('.day1').innerHTML = `${day1}`
     document.querySelector('.day2').innerHTML = `${day2}`
