@@ -3,7 +3,7 @@
 
 //funkcje pomocnicze
 const firstCapital = (word) => {
-    return word[0].toUpperCase() + word.slice(1);
+    return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
 
 const getDayIndex = (list) => {
@@ -48,7 +48,7 @@ const getForecastWeatherById = async (key, city) => {
 
 const assignWeather = (currentWeather, forecastWeather, containers, date) => {
     const { weather, main: { humidity, temp, temp_min, temp_max}, wind: {speed} } = currentWeather;
-    const { cityContainer, humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, highTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42, iconContainer1, iconContainer2, iconContainer3, iconContainer4 } = containers;
+    const { humidityContainer, windContainer, temperatureContainer, descriptionContainer, iconContainer, lowTempContainer, highTempContainer, temperatureContainer11, temperatureContainer12, temperatureContainer21, temperatureContainer22, temperatureContainer31, temperatureContainer32, temperatureContainer41, temperatureContainer42, iconContainer1, iconContainer2, iconContainer3, iconContainer4 } = containers;
     const dayList = forecastWeather.list;
 
     const dayIndex = getDayIndex(dayList);
@@ -92,12 +92,10 @@ const updateWeather = async (key, city, containers, date) => {
     try {
         const weather = await getWeatherById(key, city);
         const forecastWeather = await getForecastWeatherById(key, city);
-        console.log(weather);
-        console.log(forecastWeather);
         assignWeather(weather, forecastWeather, containers, date);
     } catch(error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
-export { updateWeather };
+export { updateWeather , firstCapital };

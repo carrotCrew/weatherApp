@@ -2,19 +2,18 @@
 import { updateWeather } from './update';
 import { changeBackground } from './changeBackground';
 import { getDayNames } from './getDayNames';
-// import { changeCity } from './change';
+import { changeCity } from './changeCity';
 
 //DEFINICJE ZMIENNYCH  
 const apiKey = "cf8dc6b8051743a8b67a42d252ffe825";
 const currentDate = new Date();
-let cityId = "3081368";
+let defaultCityId = "3081368";
 // ^ tutaj na sztywno wpisany cityId, ale trzeba będzie obcykać
 // moduł który będzie obsługiwał zmianę miasta (change.js)
 
 
 //WYWOŁANE PO ZAŁADOWANIU HTML
 document.addEventListener("DOMContentLoaded", function(event) {
-
     const weatherContainers = {
         cityContainer: document.querySelector('.city'),
         iconContainer: document.querySelector('.icon'),
@@ -38,32 +37,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
         iconContainer4: document.querySelector('.icon4'),
     };
     
+    
     changeBackground(currentDate);
     getDayNames(currentDate);
-    updateWeather(apiKey, cityId, weatherContainers, currentDate);
+    updateWeather(apiKey, defaultCityId, weatherContainers, currentDate);
+    
+    document.querySelector('.fa-search').addEventListener('click', (event) => changeCity(apiKey, weatherContainers, currentDate));
 });
-
-
-// //wyszukiwanie miasta
-
-// function cityName(){
-//     let input = document.getElementById("input1").value;
-//     console.log(input);
-//     return input;
-// }
-// var subButton = document.getElementById('subButton');
-// subButton.addEventListener('click', cityName, false);
-
-
-// var para = document.querySelector('.city');
-
-// para.addEventListener('click', updateName);
-
-// function updateName() {
-//     var city = prompt('W jakim mieście interesuje Cie pogoda? :)');
-//     para.textContent = 'Pogoda dla: ' + city;
-// }
-
 
 
 
