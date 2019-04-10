@@ -2,7 +2,7 @@
 import { updateWeather } from './update';
 import { changeBackground } from './changeBackground';
 import { getDayNames } from './getDayNames';
-import { changeCity } from './changeCity';
+import { changeCity, getCities } from './changeCity';
 
 //DEFINICJE ZMIENNYCH  
 const apiKey = "cf8dc6b8051743a8b67a42d252ffe825";

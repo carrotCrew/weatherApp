@@ -6,7 +6,8 @@ const showSpinner = (cityContainer) => {
 }
 
 const hideSpinner = () => {
-    document.querySelector('.fa-spinner').remove();
+    const spinner = document.querySelector('.fa-spinner');
+    if (spinner) spinner.remove();
 }
 
 const getCities = async () => {
@@ -31,17 +32,20 @@ const changeCity = async (key, containers, date) => {
         const correctChoosenCity = correctPolishLetters(choosenCity.toLowerCase());
         
         const { cityContainer } = containers;
+        hideSpinner();
         showSpinner(cityContainer);
 
         const cityList = await getCities();
+        const polishCities = cityList.filter((city) => city.country === "PL");
+        console.log(polishCities);
         
         const cityArr = [];
         let cityId;
         let cityName;
 
-        for (let city of cityList) {
+        for (let city of polishCities) {
 
-            if(city.name.toLowerCase() === correctChoosenCity && city.country === "PL"){
+            if(city.name.toLowerCase() === correctChoosenCity){
                 cityArr.push(city);
                 cityId = city.id;
                 cityName = firstCapital(choosenCity);
@@ -63,4 +67,4 @@ const changeCity = async (key, containers, date) => {
     }
 }
 
-export { changeCity };
+export { changeCity, getCities };

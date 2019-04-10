@@ -23,9 +23,19 @@ main .options {
   padding: 10px;
 }
 
+main .options .fa-search {
+  padding-right: 30px;
+  position: absolute;
+  right: 0;
+}
+
 main .options i:hover {
   color: #3b6d6b;
   cursor: pointer;
+}
+
+main .options .city {
+  margin: 0 auto;
 }
 main .currentWeather {
   padding: 30px 0;
