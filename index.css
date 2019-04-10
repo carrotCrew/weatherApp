@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  background-position: bottom;
+}
+
+main .options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: calc(12px + 1vw);
+  padding: 10px;
+}
+
+main .options i:hover {
+  color: #3b6d6b;
+  cursor: pointer;
+}
+main .currentWeather {
+  padding: 30px 0;
+}
+main .currentWeather .basicInfo img {
+  padding: 10px;
+}
+main .currentWeather .basicInfo p {
+  font-size: calc(12px + 2vw);
+}
+main .currentWeather .basicInfo p:first-child {
+  font-size: calc(24px + 4vw);
+}
+
+
+.fa-spinner {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+main .currentWeather .moreInfo {
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 1vw);
+  margin: 60px 0;
+}
+main .currentWeather .moreInfo .temp {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+main .currentWeather .moreInfo .temp .low-temp {
+  color: #5bb6b3;
+  margin-left: 10px;
+}
+main .currentWeather .moreInfo div {
+  width: 30%;
+}
+main .currentWeather .moreInfo i {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.btn {
+  color: white;
+  border-radius: 5px;
+  background-color:#a57450;
+  border-color: #c1631f;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 18px;
+  line-height: 2;
+
+
+}
+
+@media (min-width: 800px) {
+  main {
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  main .currentWeather {
+    width: 70vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  main .currentWeather .basicInfo,
+main .currentWeather .moreInfo {
+    align-items: center;
+    margin: 0;
+  }
+  main .currentWeather .basicInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    width: 40%;
+  }
+  main .currentWeather .basicInfo p {
+    font-size: calc(12px + 1vw);
+  }
+  main .currentWeather .basicInfo p:first-child {
+    font-size: calc(24px + 3vw);
+  }
+  main .currentWeather .moreInfo {
+    width: 60%;
+  }
+}
+@media (max-height: 500px) {
+  body .currentWeather {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  body .currentWeather .basicInfo {
+    width: 40%;
+    font-size: calc(12px + 2vw);
+  }
+  body .currentWeather .moreInfo {
+    width: 60%;
+    margin: 10px auto;
+    align-items: center;
+  }
+  body .currentWeather .moreInfo i {
+    font-size: calc(14px + 2vw);
+  }
+  body .currentWeather .moreInfo .temp span {
+    display: inline-block;
+  }
+}
+@media (max-width: 400px) {
+  main .currentWeather .moreInfo .temp .low-temp {
+    display: block;
+    margin: 0;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
