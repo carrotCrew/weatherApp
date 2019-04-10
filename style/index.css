@@ -9,6 +9,7 @@ body {
   font-family: "Poppins", sans-serif;
   text-align: center;
   background-position: bottom;
+  background-size: cover;
 }
 
 main .options {
