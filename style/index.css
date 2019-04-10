@@ -38,6 +38,17 @@ main .currentWeather .basicInfo p:first-child {
   font-size: calc(24px + 4vw);
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .fa-spinner {
   animation-name: rotate;
