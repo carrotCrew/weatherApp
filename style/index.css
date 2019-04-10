@@ -20,6 +20,7 @@ main .options {
   font-size: calc(12px + 1vw);
   padding: 10px;
 }
+
 main .options i:hover {
   color: #3b6d6b;
   cursor: pointer;
@@ -36,23 +37,7 @@ main .currentWeather .basicInfo p {
 main .currentWeather .basicInfo p:first-child {
   font-size: calc(24px + 4vw);
 }
-main .currentWeather .basicInfo .fa-sun {
-  animation-name: rotate;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 
 .fa-spinner {
   animation-name: rotate;
@@ -100,8 +85,8 @@ main .currentWeather .moreInfo i {
   padding: 6px 12px;
   font-size: 18px;
   line-height: 2;
-  
-  
+
+
 }
 
 @media (min-width: 800px) {
@@ -160,7 +145,7 @@ main .currentWeather .moreInfo {
   }
 }
 @media (max-width: 400px) {
-  main .currentWeather .moreInfo .temp span {
+  main .currentWeather .moreInfo .temp .low-temp {
     display: block;
     margin: 0;
   }
